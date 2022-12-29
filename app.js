@@ -7,7 +7,7 @@ const PORT = 3000;
 
 // Get the host IP address of the server.
 function getIPAddr() {
-  const hostIP = os.networkInterfaces()["Wi-Fi"][1]["address"];
+  const hostIP = os.networkInterfaces()["eth0"][0]["address"];
   return hostIP;
 }
 
