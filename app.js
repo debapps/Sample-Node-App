@@ -7,20 +7,20 @@ const PORT = 3000;
 
 // Get the host IP address of the server.
 function getIPAddr() {
-  const hostIP = os.networkInterfaces()["eth0"][0]["address"];
+  let hostIP = os.networkInterfaces()["eth0"][0]["address"];
   return hostIP;
 }
 
 // Get final HTML content: Replace the {HOSTIP} with the server IP Address.
 function getFinalHTML() {
   // Get the index file content.
-  const htmlContent = fs.readFileSync("./pages/index.html", "utf-8");
+  let htmlContent = fs.readFileSync("./pages/index.html", "utf-8");
 
   // Get the host IP.
   let hostIP = getIPAddr().toString();
 
   // Replace the {HOSTIP} with host IP address.
-  const finalHTML = htmlContent.replace("{HOSTIP}", hostIP);
+  let finalHTML = htmlContent.replace("{HOSTIP}", hostIP);
 
   return finalHTML;
 }
@@ -28,7 +28,7 @@ function getFinalHTML() {
 // Create the HTTP Web server.
 const webServer = http.createServer((req, res) => {
   // Get the HTML content to show.
-  const content = getFinalHTML();
+  let content = getFinalHTML();
 
   // Write the HTML content.
   res.writeHead(200, { "Content-Type": "text/html" });
