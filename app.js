@@ -7,6 +7,12 @@ const PORT = 3000;
 
 // Get the host IP address of the server.
 function getIPAddr() {
+  // For Test into personal laptop with Wi-Fi Connection.
+  /*
+  console.log(os.networkInterfaces());
+  let hostIP = os.networkInterfaces()["Wi-Fi"][1]["address"];
+  */
+  // For Production - AWS EC2.
   let hostIP = os.networkInterfaces()["eth0"][0]["address"];
   return hostIP;
 }
